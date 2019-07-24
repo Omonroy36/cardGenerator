@@ -7,25 +7,31 @@ import "../assets/img/4geeks.ico";
 import "../style/index.scss";
 
 window.onload = function() {
-  function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
-  let who = ["the dog", "my granma", "his turtle", "my bird"];
-  let what = ["eat", "pissed", "crushed", "broked"];
-  let when = [
-    "before the class",
-    "right in time",
-    "when I finished",
-    "during my lunch",
-    "while I was praying"
+  let numbers = [
+    "A",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "J",
+    "Q",
+    "K",
+    "10"
   ];
+  let symbols = ["&clubs;", "&diams;", "&hearts;", "&spades;"];
+  let random = Math.floor(Math.random() * 4);
+  if (random == 1 || random == 2) {
+    document.getElementsByClassName("symbol")[0].style.color = "red";
+    document.getElementsByClassName("symbol")[1].style.color = "red";
+    document.getElementsByClassName("number")[0].style.color = "red";
+  }
+  document.getElementsByClassName("symbol")[0].innerHTML = symbols[random];
+  document.getElementsByClassName("symbol")[1].innerHTML = symbols[random];
 
-  document.getElementById("excuse").innerHTML =
-    "<p>" +
-    who[getRandomInt(0, 4)] +
-    " " +
-    what[getRandomInt(0, 4)] +
-    " " +
-    when[getRandomInt(0, 5)] +
-    "</p>";
+  document.getElementsByClassName("number")[0].innerHTML =
+    numbers[Math.floor(Math.random() * 13)];
 };
